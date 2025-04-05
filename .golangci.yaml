@@ -1,0 +1,27 @@
+version: "2"
+linters:
+  default: all
+
+  settings:
+
+    depguard:
+      rules:
+        main:
+          allow:
+            - $gostd
+            - github.com/minuk-dev/minuk-boilerplate
+            - github.com/gin-gonic/gin
+            - github.com/samber/slog-gin
+            - github.com/samber/lo
+            - github.com/spf13/cobra
+            - go.uber.org/fx
+
+formatters:
+  enable:
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - prefix(github.com/minuk-dev/minuk-boilerplate)
