@@ -8,7 +8,7 @@ dev:
 	GOOS="darwin" GOARCH="arm64" goreleaser build --snapshot --clean --single-target
 
 build:
-	goreleaser build
+	goreleaser build --clean --snapshot
 
 unittest:
 	go test ./...
