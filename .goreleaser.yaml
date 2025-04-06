@@ -10,8 +10,8 @@ before:
 builds:
   - id: apiserver
     binary: apiserver
-    env:
-      - CGO_ENABLED=0
+    # env:
+    # - CGO_ENABLED=0
     goos:
       - linux
       - windows

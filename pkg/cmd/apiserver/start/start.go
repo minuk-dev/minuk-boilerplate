@@ -13,6 +13,7 @@ import (
 // It is a struct that holds the command line flags & internal state.
 type Options struct {
 	addr string
+	db   string
 }
 
 // NewCommand creates a new start command.
@@ -38,6 +39,7 @@ func NewCommand(opts Options) *cobra.Command {
 	}
 
 	cmd.Flags().StringVar(&opts.addr, "addr", ":8080", "Address to bind the server to")
+	cmd.Flags().StringVar(&opts.db, "db", "sqlite:test.db", "Database file to use")
 
 	return cmd
 }
@@ -52,6 +54,7 @@ func (o *Options) Run(*cobra.Command, []string) error {
 	apiserver := apiserver.New(
 		apiserver.Settings{
 			Addr: o.addr,
+			DB:   o.db,
 		},
 	)
 

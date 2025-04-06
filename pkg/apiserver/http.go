@@ -24,12 +24,13 @@ const (
 // NewHTTPServer creates a new HTTP server instance.
 func NewHTTPServer(
 	lifecycle fx.Lifecycle,
+	setting *Settings,
 	engine *gin.Engine,
 	logger *slog.Logger,
 ) *http.Server {
 	//exhaustruct:ignore
 	srv := &http.Server{
-		Addr:              ":8080",
+		Addr:              setting.Addr,
 		ReadHeaderTimeout: DefaultReadHeaderTimeout,
 		Handler:           engine,
 	}
